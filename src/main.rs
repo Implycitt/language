@@ -1,7 +1,8 @@
 use std::{
     io,
-    io::{BufWriter, Write},
-    fs::File
+    io::prelude::*,
+    fs::File,
+    path::Path,
 };
 
 fn input() -> String {
@@ -10,14 +11,23 @@ fn input() -> String {
     return input
 } 
 
-fn write() -> std::io::Result<()> {
-    let file = File::create("D:\\dev\\Projects\\language\\src\\words.txt")?;
-    let mut writer = BufWriter::new(file);
-    writer.write_all(b"man")?;
-    writer.flush()?;
-    Ok(())
+fn write(inp: String) {
+    let path = Path::new("data\\words.txt");
+    let display = path.display();
+
+    let mut file = match File::create(&path) {
+        Err(why) => panic!("Couldn't create {}: {}", display, why),
+        Ok(file) => file,
+    };
+
+    match file.write_all(inp.as_bytes()) {
+        Err(why) => panic!("Couldn't write to {}: {}", display, why),
+        Ok(_) => println!("Works"),
+    }
 }
 
 fn main() {
-    write();
+    let text = input();
+    write(text);
 }
+
