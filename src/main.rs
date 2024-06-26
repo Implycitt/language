@@ -1,9 +1,10 @@
 use std::{
     io::prelude::*,
     io::{self, BufRead},
-    fs::File,
+    fs::{File, OpenOptions},
     path::Path,
 };
+
 
 fn input() -> String {
     let mut input = String::new();
@@ -12,18 +13,22 @@ fn input() -> String {
 } 
 
 fn write(inp: String) {
-    let path = Path::new("data\\words.txt");
-    let display = path.display();
 
-    let mut file = match File::create(&path) {
-        Err(why) => panic!("Couldn't create {}: {}", display, why),
-        Ok(file) => file,
-    };
+    let mut file = OpenOptions::new()
+        .append(true)
+        .create(true)
+        .open("data\\words.ron")
+        .expect("create failed");
 
     match file.write_all(inp.as_bytes()) {
-        Err(why) => panic!("Couldn't write to {}: {}", display, why),
+        Err(why) => panic!("Couldn't write: {}", why),
         Ok(_) => println!("Works"),
     }
+}
+
+fn create_card() {
+    let mut text = input();
+    write(text);
 }
 
 fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
@@ -44,10 +49,9 @@ fn main() {
     loop {
         let command = input();
         match command.as_str() {
-            "new" => write(text),
+            "new" => create_card(),
             "exit" => break,
             _ => continue,
         }
     }
 }
-
