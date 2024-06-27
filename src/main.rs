@@ -53,7 +53,8 @@ fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> wher
 }
 
 fn display() {
-    let path = Path::new("data\\words.txt");
+    println!("here");
+    let path = Path::new("data\\words.ron");
     if let Ok(lines) = read_lines(path) {
         for line in lines.flatten() {
             println!("{}", line);
@@ -61,11 +62,17 @@ fn display() {
     }
 }
 
+fn show_help() {
+    println!("commands: new, list, help, exit");
+}
+
 fn main() {
     loop {
         let command = input();
         match command.as_str() {
             "new" => create_card(),
+            "list" => display(),
+            "help" => show_help(),
             "exit" => break,
             _ => continue,
         }
