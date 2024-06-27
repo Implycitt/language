@@ -9,6 +9,10 @@ use serde::{ Deserialize, Serialize };
 
 use ron::{ self, ser };
 
+use plugins::{ window };
+
+mod plugins;
+
 #[derive(Debug, Deserialize, Serialize)]
 struct Card {
     word: String,
