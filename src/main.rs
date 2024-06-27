@@ -5,6 +5,15 @@ use std::{
     path::Path,
 };
 
+use serde::{ Deserialize, Serialize };
+
+use ron::{ self, ser };
+
+#[derive(Debug, Deserialize, Serialize)]
+struct Card {
+    word: String,
+    description: String,
+}
 
 fn input() -> String {
     let mut input = String::new();
@@ -26,9 +35,16 @@ fn write(inp: String) {
     }
 }
 
+fn construct_data() {
+    let mut word = input();
+    let mut desc = input();
+    let mut new_card: Card = Card { word: word, description: desc };  
+    let output = ser::to_string_pretty(&new_card, ser::PrettyConfig::default()).unwrap();
+    write(output);
+}
+
 fn create_card() {
-    let mut text = input();
-    write(text);
+    construct_data();
 }
 
 fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
