@@ -1,3 +1,5 @@
+mod plugins;
+
 use std::{
     io::prelude::*,
     io::{self, BufRead},
@@ -9,9 +11,7 @@ use serde::{ Deserialize, Serialize };
 
 use ron::{ self, ser };
 
-use plugins::{ window };
-
-mod plugins;
+use plugins::{window};
 
 #[derive(Debug, Deserialize, Serialize)]
 struct Card {
@@ -71,6 +71,8 @@ fn show_help() {
 }
 
 fn main() {
+    window::create_window();
+    /*
     loop {
         let command = input();
         match command.as_str() {
@@ -81,4 +83,5 @@ fn main() {
             _ => continue,
         }
     }
+    */
 }
