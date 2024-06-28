@@ -31,7 +31,7 @@ fn write(inp: String) {
         .append(true)
         .create(true)
         .open("data\\words.ron")
-        .expect("create failed");
+        .expect("Failed");
 
     match file.write_all(inp.as_bytes()) {
         Err(why) => panic!("Couldn't write: {}", why),
