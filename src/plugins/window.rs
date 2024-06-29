@@ -1,16 +1,16 @@
 use iced::{ Element, Sandbox, Settings };
 
 pub fn create_window() -> iced::Result {
-    Hello::run(Settings::default())
+    Window::run(Settings::default())
 }
 
-struct Hello;
+struct Window;
 
-impl Sandbox for Hello {
+impl Sandbox for Window {
     type Message = ();
 
-    fn new() -> Hello {
-        Hello
+    fn new() -> Window {
+        Window
     }
 
     fn title(&self) -> String {
@@ -26,3 +26,4 @@ impl Sandbox for Hello {
     }
 
 }
+
