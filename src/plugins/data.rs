@@ -36,9 +36,9 @@ fn write(inp: String) {
 }
 
 fn construct_data() {
-    let mut word = input();
-    let mut desc = input();
-    let mut new_card: Card = Card { word: word, description: desc };  
+    let word = input();
+    let desc = input();
+    let new_card: Card = Card { word: word, description: desc };  
     let output = ser::to_string_pretty(&new_card, ser::PrettyConfig::default()).unwrap();
     write(output);
 }

@@ -3,7 +3,6 @@ mod plugins;
 use plugins::{window, data};
 
 fn main() {
-    window::create_window();
     /*
     loop {
         let command = input();
