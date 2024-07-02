@@ -9,4 +9,4 @@ edition = "2021"
 [dependencies]
 ron = "0.8"
 serde = { version = "1", features = ["derive"] }
-iced = { version = "0.12.1", features = ["debug", "lazy", "canvas"] }
+iced = { version = "0.12.1", features = ["debug"]}
