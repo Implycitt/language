@@ -5,9 +5,7 @@ use iced::{
     {Length, Settings, Theme, Element, Command, Application},
 };
 
-use output;
-
-use super::output;
+// use output;
 
 pub fn create_window() -> iced::Result {
     Window::run(Settings::default())
@@ -34,18 +32,19 @@ impl Application for Window {
     }
 
     fn view(&self) -> iced::Element<Self::Message> {
+        "Hello world".into()
 
-        let word = output::get_word();
-        let description = output::get_description();
+       // let word = output::get_word();
+       // let description = output::get_description();
 
-        let card = row![word, description].spacing(20);
+       // let card = row![word, description].spacing(20);
         
-        container(card)
-            .width(Length::Fill)
-            .height(Length::Fill)
-            .center_x()
-            .center_y()
-            .into()
+        // container(card)
+        //     .width(Length::Fill)
+        //     .height(Length::Fill)
+        //     .center_x()
+        //     .center_y()
+        //     .into()
     }
 
     fn theme(&self) -> Theme {

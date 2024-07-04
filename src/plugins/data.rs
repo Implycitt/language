@@ -53,7 +53,6 @@ fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> wher
 }
 
 fn display() {
-    println!("here");
     let path = Path::new("data\\words.ron");
     if let Ok(lines) = read_lines(path) {
         for line in lines.flatten() {

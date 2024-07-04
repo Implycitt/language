@@ -1,9 +1,10 @@
 mod plugins;
 
-use plugins::{window, data};
+use plugins::{window, data, output};
 
 fn main() {
-    window::create_window();
+    //window::create_window();
+    output::get_data();
     /*
     loop {
         let command = input();
