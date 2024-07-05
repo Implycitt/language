@@ -32,10 +32,3 @@ pub fn write(inp: String) {
     }
 }
 
-// not sure if the input function will be any use
-
-// pub fn input() -> String {
-//     let mut input = String::new();
-//     io::stdin().read_line(&mut input);
-//     return input.replace(['\n', '\r'], "")
-// } 
