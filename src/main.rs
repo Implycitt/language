@@ -1,10 +1,10 @@
 mod plugins;
 
-use plugins::{window, data, output};
+use plugins::{window, card};
 
 fn main() {
     //window::create_window();
-    output::get_data();
+    card::get_data();
     /*
     loop {
         let command = input();

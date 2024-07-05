@@ -1,7 +1,4 @@
 (
     word: "word",
     description: "my new word",
-)(
-    word: "anotherword",
-    description: "another new word I learned",
 )
